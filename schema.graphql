@@ -1,0 +1,24 @@
+type Endpoint {
+  host: String!
+  port: Int!
+}
+
+type Lab {
+  name: String!
+  resource: String!
+  endpoints: [Endpoint!]!
+}
+
+type LabCategory {
+  name: String!
+  labs: [Lab!]!
+}
+
+type Practice {
+  labCategories: [LabCategory!]!
+}
+
+type Query {
+  hello: String!
+  practice: Practice!
+}
