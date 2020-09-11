@@ -33,7 +33,8 @@ const mocks = {
   Time: () => {
     return new Date()
   },
-  Practice: () => new MockList(5),
+  Practice: () => apolloError,
+  // Practice: () => new MockList(5),
   String: () =>faker.hacker.noun(),
   Int: () => faker.random.number(),
 }
