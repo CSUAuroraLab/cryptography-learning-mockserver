@@ -33,8 +33,9 @@ const mocks = {
   Time: () => {
     return new Date()
   },
-  Practice: () => apolloError,
-  // Practice: () => new MockList(5),
+  // uncomment next line if want to mock error
+  // Practice: () => apolloError,
+  Practice: () => new MockList(5),
   String: () =>faker.hacker.noun(),
   Int: () => faker.random.number(),
 }
