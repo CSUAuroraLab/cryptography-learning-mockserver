@@ -1,17 +1,21 @@
-type Endpoint {
-  host: String!
-  port: Int!
-}
+# Directs the executor to query only when the field exists.
+directive @ifdef on FIELD
 
 type Lab {
-  name: String!
-  resource: String!
-  endpoints: [Endpoint!]!
+  id: String!
+  resources: [ResourceWithTranslation!]!
 }
 
 type LabCategory {
-  name: String!
+  id: String!
+  name: [Translation!]!
   labs: [Lab!]!
+}
+
+type LabInstance {
+  lang: String!
+  name: String!
+  content: String!
 }
 
 type Practice {
@@ -21,4 +25,15 @@ type Practice {
 type Query {
   hello: String!
   practice: Practice!
+  lab(categoryId: String!, labId: String!, language: String): LabInstance!
+}
+
+type ResourceWithTranslation {
+  lang: String!
+  name: String!
+}
+
+type Translation {
+  lang: String!
+  text: String!
 }
